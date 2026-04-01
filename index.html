@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AJI M3AYA — Viral Reels for Restaurants & Hotels in Morocco</title>
+  <meta name="description" content="Morocco's #1 marketing agency for viral Instagram reels. We help restaurants, hotels, cafés and brands get more visibility and customers." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Fonts: Clash Display + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS & RESET
+    ============================================================ */
+    :root {
+      --orange:        #FF6B1A;
+      --orange-light:  #FF8C47;
+      --orange-glow:   rgba(255,107,26,.18);
+      --dark:          #0D0C0B;
+      --dark-2:        #161412;
+      --dark-3:        #1E1B18;
+      --dark-4:        #272320;
+      --cream:         #F5F0EB;
+      --muted:         #9A8F86;
+      --white:         #FFFFFF;
+      --border:        rgba(255,255,255,.07);
+      --radius-sm:     8px;
+      --radius-md:     16px;
+      --radius-lg:     28px;
+      --radius-xl:     48px;
+      --font-display:  'Playfair Display', Georgia, serif;
+      --font-body:     'DM Sans', sans-serif;
+      --ease-out:      cubic-bezier(.22,.68,0,1.2);
+      --ease-smooth:   cubic-bezier(.4,0,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--dark);
+      color: var(--cream);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ============================================================
+       NOISE TEXTURE OVERLAY (premium feel)
+    ============================================================ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .4;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    .display-xl {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .display-lg {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .display-md {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2.4rem);
+      font-weight: 700;
+    }
+    .body-lg  { font-size: 1.125rem; line-height: 1.7; }
+    .body-md  { font-size: 1rem;    line-height: 1.65; }
+    .body-sm  { font-size: .875rem; line-height: 1.6; }
+    .caption  { font-size: .75rem;  letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+    .text-orange  { color: var(--orange); }
+    .text-muted   { color: var(--muted); }
+    .italic { font-style: italic; }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .container {
+      width: 90%;
+      max-width: 1180px;
+      margin-inline: auto;
+    }
+    .section { padding: 100px 0; }
+    .section--sm { padding: 60px 0; }
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .gap-2 { gap: .5rem; }
+    .gap-4 { gap: 1rem; }
+    .gap-6 { gap: 1.5rem; }
+    .gap-8 { gap: 2rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .text-center { text-align: center; }
+
+    /* ============================================================
+       SECTION LABELS
+    ============================================================ */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--orange-glow);
+      border: 1px solid rgba(255,107,26,.3);
+      border-radius: 100px;
+      padding: .35rem 1rem;
+      color: var(--orange-light);
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .85rem 1.8rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: transform .2s var(--ease-out), box-shadow .2s, background .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,.08);
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .btn:hover::after { opacity: 1; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 8px 32px rgba(255,107,26,.35);
+    }
+    .btn-primary:hover {
+      background: var(--orange-light);
+      box-shadow: 0 12px 40px rgba(255,107,26,.5);
+    }
+    .btn-ghost {
+      background: var(--dark-4);
+      color: var(--cream);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: rgba(255,107,26,.4); }
+
+    .btn-icon {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 0;
+      transition: background .3s, backdrop-filter .3s, border-color .3s;
+    }
+    #nav.scrolled {
+      background: rgba(13,12,11,.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: .9rem;
+      color: var(--muted);
+      transition: color .2s;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      display: flex;
+      background: var(--dark-4);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .lang-btn {
+      padding: .3rem .7rem;
+      border-radius: 100px;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: background .2s, color .2s;
+      letter-spacing: .05em;
+    }
+    .lang-btn.active {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    /* Mobile Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--cream);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(255,107,26,.13) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(255,107,26,.07) 0%, transparent 60%);
+    }
+    /* Geometric decorative ring */
+    .hero-ring {
+      position: absolute;
+      right: -120px; top: 50%;
+      transform: translateY(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,107,26,.12);
+      pointer-events: none;
+    }
+    .hero-ring::before {
+      content: '';
+      position: absolute;
+      inset: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,107,26,.08);
+    }
+    .hero-ring::after {
+      content: '';
+      position: absolute;
+      inset: 100px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,107,26,.05);
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 760px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,107,26,.1);
+      border: 1px solid rgba(255,107,26,.25);
+      border-radius: 100px;
+      padding: .4rem 1rem;
+      font-size: .8rem;
+      color: var(--orange-light);
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+      animation: fadeUp .6s var(--ease-out) both;
+    }
+    .hero-headline {
+      margin-bottom: 1.25rem;
+      animation: fadeUp .6s .1s var(--ease-out) both;
+    }
+    .hero-headline .line-2 {
+      color: var(--orange);
+      font-style: italic;
+    }
+    .hero-sub {
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp .6s .2s var(--ease-out) both;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      animation: fadeUp .6s .3s var(--ease-out) both;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      animation: fadeUp .6s .4s var(--ease-out) both;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--white);
+    }
+    .stat-num span { color: var(--orange); }
+    .stat-label { color: var(--muted); font-size: .85rem; margin-top: .15rem; }
+
+    /* WhatsApp pulse */
+    .pulse-ring {
+      position: relative;
+    }
+    .pulse-ring::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 100px;
+      background: rgba(37,211,102,.25);
+      animation: pulse 2s infinite;
+    }
+
+    /* ============================================================
+       SOCIAL PROOF / CLIENTS
+    ============================================================ */
+    #clients {
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .clients-intro {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .trust-bar {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      justify-content: center;
+      margin-top: .75rem;
+    }
+    .trust-bar .line { flex: 1; max-width: 80px; height: 1px; background: var(--border); }
+    .trust-bar span { color: var(--muted); font-size: .85rem; }
+
+    /* Client grid */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .client-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      position: relative;
+      transition: border-color .3s, transform .3s var(--ease-out);
+    }
+    .client-card:hover {
+      border-color: rgba(255,107,26,.3);
+      transform: translateY(-4px);
+    }
+    .client-card .placeholder-img {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      background: linear-gradient(135deg, var(--dark-3), var(--dark-4));
+    }
+    .placeholder-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--orange-glow);
+      border: 1px solid rgba(255,107,26,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .client-label {
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .clients-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+      font-style: italic;
+    }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services { background: var(--dark); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      transition: border-color .3s, transform .3s var(--ease-out), box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover {
+      border-color: rgba(255,107,26,.25);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,.4);
+    }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: var(--orange-glow);
+      border: 1px solid rgba(255,107,26,.2);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+    }
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .75rem;
+    }
+    .service-desc { color: var(--muted); font-size: .9rem; line-height: 1.65; }
+    .service-tag {
+      display: inline-block;
+      margin-top: 1.25rem;
+      padding: .3rem .75rem;
+      background: var(--orange-glow);
+      border-radius: 100px;
+      font-size: .75rem;
+      color: var(--orange-light);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       HOW IT WORKS
+    ============================================================ */
+    #how {
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .steps-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+      position: relative;
+    }
+    /* connector line */
+    .steps-wrap::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(16.66% + 1rem);
+      right: calc(16.66% + 1rem);
+      height: 1px;
+      background: linear-gradient(90deg, var(--orange), rgba(255,107,26,.2), var(--orange));
+    }
+    .step {
+      text-align: center;
+      position: relative;
+    }
+    .step-num {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--dark-3);
+      border: 2px solid var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--orange);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 8px var(--dark-2), 0 0 30px rgba(255,107,26,.2);
+    }
+    .step-icon { font-size: 1.5rem; }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .6rem;
+    }
+    .step-desc { color: var(--muted); font-size: .88rem; line-height: 1.6; }
+
+    /* ============================================================
+       RESULTS / PROOF
+    ============================================================ */
+    #results { background: var(--dark); }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .result-card {
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      transition: transform .3s var(--ease-out), border-color .3s;
+    }
+    .result-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,107,26,.3);
+    }
+    .result-media {
+      aspect-ratio: 9 / 16;
+      background: var(--dark-3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+      max-height: 300px;
+      position: relative;
+      overflow: hidden;
+    }
+    .result-media::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,107,26,.05), transparent);
+    }
+    .play-btn {
+      width: 52px; height: 52px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(255,107,26,.4);
+    }
+    .play-btn svg { margin-left: 3px; }
+    .result-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1rem;
+      background: linear-gradient(transparent, rgba(13,12,11,.9));
+      font-size: .8rem;
+      color: var(--muted);
+      font-style: italic;
+      letter-spacing: .05em;
+    }
+    .result-info { padding: 1rem 1.25rem; }
+    .result-name { font-weight: 600; font-size: .95rem; color: var(--white); }
+    .result-city { font-size: .8rem; color: var(--orange); margin-top: .2rem; }
+
+    /* ============================================================
+       ANIMATED FAVICON / MAP LOGO
+    ============================================================ */
+    @keyframes flagWave {
+      0%   { transform: translateX(-50%) rotate(-6deg) scale(1); }
+      25%  { transform: translateX(-50%) rotate(4deg) scale(1.05); }
+      50%  { transform: translateX(-50%) rotate(-4deg) scale(1); }
+      75%  { transform: translateX(-50%) rotate(5deg) scale(1.05); }
+      100% { transform: translateX(-50%) rotate(-6deg) scale(1); }
+    }
+    .map-favicon-anim {
+      animation: flagWave 1.8s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    /* ============================================================
+       FORM SUCCESS MESSAGE
+    ============================================================ */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+      animation: fadeUp .5s var(--ease-out) both;
+    }
+    .form-success.show { display: block; }
+    .form-success-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--white);
+      margin-bottom: .75rem;
+    }
+    .form-success p { color: var(--muted); line-height: 1.7; }
+    .submit-btn:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+    #coverage {
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+    }
+    .coverage-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .coverage-visual {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-placeholder {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .map-pin {
+      font-size: 3rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    /* Morocco-inspired geometric pattern */
+    .coverage-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          30deg,
+          transparent,
+          transparent 20px,
+          rgba(255,107,26,.03) 20px,
+          rgba(255,107,26,.03) 21px
+        ),
+        repeating-linear-gradient(
+          -30deg,
+          transparent,
+          transparent 20px,
+          rgba(255,107,26,.03) 20px,
+          rgba(255,107,26,.03) 21px
+        );
+    }
+    .cities-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.5rem;
+    }
+    .city-tag {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: .3rem .9rem;
+      font-size: .82rem;
+      color: var(--cream);
+      transition: border-color .2s, color .2s;
+    }
+    .city-tag:hover { border-color: var(--orange); color: var(--orange-light); }
+
+    /* ============================================================
+       TESTIMONIAL / CTA STRIP
+    ============================================================ */
+    #cta-strip {
+      background: linear-gradient(135deg, var(--dark-3) 0%, var(--dark-4) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 0;
+    }
+    .cta-inner {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .cta-headline {
+      margin-bottom: 1rem;
+    }
+    .cta-sub {
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       FORM SECTION
+    ============================================================ */
+    #contact {
+      background: var(--dark);
+      padding: 100px 0;
+    }
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-sidebar h2 { margin-bottom: 1rem; }
+    .contact-sidebar p { color: var(--muted); margin-bottom: 2rem; line-height: 1.7; }
+    .contact-links { display: flex; flex-direction: column; gap: .75rem; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .85rem 1.25rem;
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: border-color .2s, transform .2s;
+    }
+    .contact-link:hover {
+      border-color: rgba(255,107,26,.3);
+      transform: translateX(4px);
+    }
+    .contact-link-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--orange-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-link-text { font-size: .85rem; color: var(--muted); }
+    .contact-link-val  { font-size: .92rem; color: var(--cream); font-weight: 500; }
+
+    /* Form */
+    .form-card {
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      margin-bottom: .85rem;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: .04em;
+    }
+    label .req { color: var(--orange); margin-left: 2px; }
+    label .opt { color: var(--muted); font-weight: 400; font-size: .78rem; margin-left: 4px; }
+    input, select, textarea {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: .75rem 1rem;
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: .9rem;
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+      width: 100%;
+      -webkit-appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: rgba(154,143,134,.5); }
+    select option { background: var(--dark-3); }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,107,26,.12);
+    }
+    textarea { resize: vertical; min-height: 100px; }
+
+    /* Submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 1.1rem 2rem;
+      background: var(--orange);
+      color: var(--white);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      box-shadow: 0 8px 32px rgba(255,107,26,.35);
+      transition: background .2s, transform .2s var(--ease-out), box-shadow .2s;
+      border: none;
+    }
+    .submit-btn:hover {
+      background: var(--orange-light);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 44px rgba(255,107,26,.5);
+    }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-main {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -.01em;
+    }
+    .submit-sub {
+      font-size: .78rem;
+      opacity: .7;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+    .footer-logo span { color: var(--orange); }
+    .footer-copy { color: var(--muted); font-size: .82rem; }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      color: var(--muted);
+      font-size: .82rem;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--orange); }
+
+    /* ============================================================
+       FLOATING WHATSAPP
+    ============================================================ */
+    .float-wa {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 50;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 28px rgba(37,211,102,.45);
+      transition: transform .3s var(--ease-out);
+      animation: fadeUp .6s 1s var(--ease-out) both;
+    }
+    .float-wa:hover { transform: scale(1.1); }
+    .float-wa::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: rgba(37,211,102,.3);
+      animation: pulse 2.5s infinite;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%   { transform: scale(1);   opacity: .8; }
+      50%  { transform: scale(1.3); opacity: 0; }
+      100% { transform: scale(1);   opacity: 0; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    /* Scroll-triggered reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .7s var(--ease-smooth), transform .7s var(--ease-smooth);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+
+    /* ============================================================
+       LANGUAGE — hidden/shown content
+    ============================================================ */
+    [data-lang="en"] .fr { display: none !important; }
+    [data-lang="fr"] .en { display: none !important; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .services-grid   { grid-template-columns: repeat(2, 1fr); }
+      .clients-grid    { grid-template-columns: repeat(3, 1fr); }
+      .coverage-inner  { grid-template-columns: 1fr; }
+      .contact-wrap    { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 72px 0; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .services-grid  { grid-template-columns: 1fr; }
+      .results-grid   { grid-template-columns: 1fr; }
+      .steps-wrap     { grid-template-columns: 1fr; }
+      .steps-wrap::before { display: none; }
+      .clients-grid   { grid-template-columns: repeat(2, 1fr); }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero-stats     { gap: 1.5rem; flex-wrap: wrap; }
+      .form-row       { grid-template-columns: 1fr; }
+      .footer-inner   { flex-direction: column; text-align: center; }
+      .footer-links   { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .btn { padding: .75rem 1.3rem; font-size: .88rem; }
+      .form-card { padding: 1.5rem; }
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13,12,11,.97);
+      z-index: 90;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--cream);
+      transition: color .2s;
+    }
+    .mobile-nav a:hover { color: var(--orange); }
+    .mobile-nav-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-size: 1.8rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     FLOATING WHATSAPP BUTTON
+============================================================ -->
+<a href="https://wa.me/212660213020" class="float-wa" target="_blank" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ============================================================
+     MOBILE NAV
+============================================================ -->
+<nav class="mobile-nav" id="mobileNav">
+  <span class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Close">✕</span>
+  <a href="#services"  onclick="closeMobileNav()"><span class="en">Services</span><span class="fr">Services</span></a>
+  <a href="#how"       onclick="closeMobileNav()"><span class="en">How It Works</span><span class="fr">Comment ça marche</span></a>
+  <a href="#results"   onclick="closeMobileNav()"><span class="en">Results</span><span class="fr">Résultats</span></a>
+  <a href="#contact"   onclick="closeMobileNav()"><span class="en">Contact</span><span class="fr">Contact</span></a>
+  <a href="https://wa.me/212660213020" class="btn btn-primary" style="font-size:1rem">WhatsApp</a>
+</nav>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<header id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo">AJI<span> M3AYA</span></div>
+      <nav class="nav-links">
+        <a href="#services"><span class="en">Services</span><span class="fr">Services</span></a>
+        <a href="#how"><span class="en">How It Works</span><span class="fr">Comment ça marche</span></a>
+        <a href="#results"><span class="en">Results</span><span class="fr">Résultats</span></a>
+        <a href="#clients"><span class="en">Clients</span><span class="fr">Clients</span></a>
+        <a href="#contact"><span class="en">Contact</span><span class="fr">Contact</span></a>
+      </nav>
+      <div class="nav-actions">
+        <!-- Language Toggle -->
+        <div class="lang-toggle" role="group" aria-label="Language toggle">
+          <button class="lang-btn active" id="btnEn" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" id="btnFr" onclick="setLang('fr')">FR</button>
+        </div>
+        <a href="https://wa.me/212660213020" class="btn btn-primary" style="padding:.65rem 1.3rem;font-size:.85rem">
+          <span class="en">WhatsApp Us</span>
+          <span class="fr">WhatsApp</span>
+        </a>
+        <button class="hamburger" onclick="openMobileNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     SECTION 1: HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ring"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        🎬&nbsp;
+        <span class="en">Morocco's #1 Viral Reels Agency</span>
+        <span class="fr">L'Agence Reels Viraux N°1 au Maroc</span>
+      </div>
+
+      <!-- EN Headline -->
+      <h1 class="display-xl hero-headline en">
+        We turn your<br>
+        <span class="line-2">business into</span><br>
+        a viral brand
+      </h1>
+      <!-- FR Headline -->
+      <h1 class="display-xl hero-headline fr">
+        On transforme votre<br>
+        <span class="line-2">business en</span><br>
+        marque virale
+      </h1>
+
+      <p class="body-lg hero-sub text-muted en">
+        We create scroll-stopping Instagram Reels that bring real customers to your door —
+        used by 200+ restaurants, hotels, cafés and brands across Morocco.
+      </p>
+      <p class="body-lg hero-sub text-muted fr">
+        Nous créons des Reels Instagram qui attirent de vrais clients chez vous —
+        utilisé par plus de 200 restaurants, hôtels, cafés et marques au Maroc.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="https://wa.me/212660213020" class="btn btn-primary pulse-ring" target="_blank">
+          <!-- WA icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span class="en">Chat on WhatsApp</span>
+          <span class="fr">Écrire sur WhatsApp</span>
+        </a>
+        <a href="tel:+212660213020" class="btn btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 01.07 2 2 2 0 012 .07h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span class="en">Call Us</span>
+          <span class="fr">Appelez-nous</span>
+        </a>
+        <a href="https://www.instagram.com/ajii_m3aya?igsh=MXhoNXQzNzVyNmYxcg==" class="btn btn-ghost" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">200<span>+</span></div>
+          <div class="stat-label en">Happy Clients</div>
+          <div class="stat-label fr">Clients Satisfaits</div>
+        </div>
+        <div>
+          <div class="stat-num">50<span>K+</span></div>
+          <div class="stat-label en">Views Generated</div>
+          <div class="stat-label fr">Vues Générées</div>
+        </div>
+        <div>
+          <div class="stat-num">10<span>+</span></div>
+          <div class="stat-label en">Cities Covered</div>
+          <div class="stat-label fr">Villes Couvertes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2: SOCIAL PROOF / CLIENTS
+     To replace: swap .placeholder-img divs with <img> tags
+============================================================ -->
+<section id="clients" class="section--sm">
+  <div class="container">
+    <div class="clients-intro reveal">
+      <div class="section-label en">Trusted By</div>
+      <div class="section-label fr">Ils nous font confiance</div>
+      <h2 class="display-md en">Trusted by <span class="text-orange">200+</span> businesses across Morocco</h2>
+      <h2 class="display-md fr">Plus de <span class="text-orange">200</span> entreprises au Maroc nous font confiance</h2>
+      <div class="trust-bar">
+        <div class="line"></div>
+        <span class="en">Restaurants · Hotels · Cafés · Brands · Food · Fashion</span>
+        <span class="fr">Restaurants · Hôtels · Cafés · Marques · Food · Mode</span>
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <!-- ⬇ CLIENT LOGO CARDS — real images now embedded -->
+    <div class="clients-grid reveal reveal-delay-1">
+      <!-- Best Sushi Ya -->
+      <div class="client-card">
+        <img src="client-bestsushiya.jpg" alt="Best Sushi Ya — Restaurant Asiatique" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <!-- Ben Zakani -->
+      <div class="client-card">
+        <img src="client-benzakani.jpg" alt="Ben Zakani — Construire l'Avenir" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <!-- Cuisine Moderne -->
+      <div class="client-card">
+        <img src="client-cuisinemoderne.jpg" alt="Cuisine Moderne" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <!-- Allo Aoubid -->
+      <div class="client-card">
+        <img src="client-alloaoubid.jpg" alt="Allo Aoubid" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <!-- Velvety Women -->
+      <div class="client-card">
+        <img src="client-velvety.jpg" alt="Velvety Women" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <!-- Obayoli -->
+      <div class="client-card">
+        <img src="client-obayoli.png" alt="Obayoli" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <!-- VNV -->
+      <div class="client-card">
+        <img src="527397064_18029377109705029_6147447285080263320_n.jpg" alt="VNV" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <!-- Savart Plus -->
+      <div class="client-card">
+        <img src="455759041_467042482970786_9162863646577672062_n.jpg" alt="Savart Plus — Assistance Scolaire" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+    </div>
+    <!-- ⬆ END CLIENT CARDS -->
+
+    <p class="clients-note reveal">
+      <span class="en">+ many more — your business could be next 🔥</span>
+      <span class="fr">+ bien d'autres — votre établissement pourrait être le prochain 🔥</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3: SERVICES
+============================================================ -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:.5rem">
+      <div class="section-label en">What We Do</div>
+      <div class="section-label fr">Ce que nous faisons</div>
+      <h2 class="display-lg en">Our <span class="text-orange italic">Services</span></h2>
+      <h2 class="display-lg fr">Nos <span class="text-orange italic">Services</span></h2>
+      <p class="body-md text-muted" style="max-width:520px;margin:1rem auto 0">
+        <span class="en">Everything you need to dominate your local market on Instagram.</span>
+        <span class="fr">Tout ce qu'il faut pour dominer votre marché local sur Instagram.</span>
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">🎬</div>
+        <div class="service-title en">Viral Reels Creation</div>
+        <div class="service-title fr">Création de Reels Viraux</div>
+        <p class="service-desc en">Professional shooting and editing of Instagram Reels that stop the scroll and drive real foot traffic to your location.</p>
+        <p class="service-desc fr">Tournage et montage professionnel de Reels Instagram qui arrêtent le scroll et amènent des clients chez vous.</p>
+        <span class="service-tag en">Most Popular 🔥</span>
+        <span class="service-tag fr">Le Plus Populaire 🔥</span>
+      </div>
+      <!-- Service 2 -->
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">📊</div>
+        <div class="service-title en">Content Strategy</div>
+        <div class="service-title fr">Stratégie de Contenu</div>
+        <p class="service-desc en">A tailored content plan for your brand — posting schedule, hashtag strategy, hooks, and captions that convert viewers into customers.</p>
+        <p class="service-desc fr">Un plan de contenu sur-mesure — calendrier, hashtags, accroches et légendes qui convertissent vos abonnés en clients.</p>
+        <span class="service-tag en">Strategic</span>
+        <span class="service-tag fr">Stratégique</span>
+      </div>
+      <!-- Service 3 -->
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">📍</div>
+        <div class="service-title en">Local Brand Growth</div>
+        <div class="service-title fr">Croissance de Marque Locale</div>
+        <p class="service-desc en">We build your local identity on social media so that people in your city know, trust, and choose your business over the competition.</p>
+        <p class="service-desc fr">Nous construisons votre identité locale sur les réseaux pour que votre ville vous choisisse avant la concurrence.</p>
+        <span class="service-tag en">Long-Term Growth</span>
+        <span class="service-tag fr">Croissance Durable</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4: HOW IT WORKS
+============================================================ -->
+<section id="how" class="section">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-label en">The Process</div>
+      <div class="section-label fr">Le Processus</div>
+      <h2 class="display-lg en">How it <span class="text-orange italic">Works</span></h2>
+      <h2 class="display-lg fr">Comment ça <span class="text-orange italic">Marche</span></h2>
+      <p class="body-md text-muted" style="max-width:480px;margin:1rem auto 0">
+        <span class="en">Simple, fast, and results-driven. Here's how we go from zero to viral.</span>
+        <span class="fr">Simple, rapide et axé sur les résultats. Voici comment on passe de zéro au viral.</span>
+      </p>
+    </div>
+
+    <div class="steps-wrap">
+      <!-- Step 1 -->
+      <div class="step reveal reveal-delay-1">
+        <div class="step-num">01</div>
+        <h3 class="step-title en">Contact Us</h3>
+        <h3 class="step-title fr">Contactez-nous</h3>
+        <p class="step-desc en">Reach out on WhatsApp or fill the form below. We'll schedule a free consultation to understand your brand and goals.</p>
+        <p class="step-desc fr">Écrivez-nous sur WhatsApp ou remplissez le formulaire. Nous planifierons une consultation gratuite pour comprendre votre marque.</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="step reveal reveal-delay-2">
+        <div class="step-num">02</div>
+        <h3 class="step-title en">We Create Content</h3>
+        <h3 class="step-title fr">Nous Créons le Contenu</h3>
+        <p class="step-desc en">Our team comes to your location, shoots, edits, and delivers scroll-stopping Reels perfectly tailored to your audience.</p>
+        <p class="step-desc fr">Notre équipe vient chez vous, filme, monte et livre des Reels parfaitement adaptés à votre audience.</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="step reveal reveal-delay-3">
+        <div class="step-num">03</div>
+        <h3 class="step-title en">You Get Customers</h3>
+        <h3 class="step-title fr">Vous Obtenez des Clients</h3>
+        <p class="step-desc en">Your Reels go live, views roll in, and real customers walk through your door. That's the AJI M3AYA promise.</p>
+        <p class="step-desc fr">Vos Reels sont publiés, les vues arrivent et de vrais clients franchissent votre porte. C'est la promesse AJI M3AYA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5: RESULTS / PROOF
+     To replace: swap .result-media divs with <video> or <img> tags
+============================================================ -->
+<section id="results" class="section">
+  <div class="container">
+    <div class="text-center reveal">
+      <div class="section-label en">Proof It Works</div>
+      <div class="section-label fr">La Preuve que ça Marche</div>
+      <h2 class="display-lg en">Real <span class="text-orange italic">Results</span></h2>
+      <h2 class="display-lg fr"><span class="text-orange italic">Résultats</span> Réels</h2>
+      <p class="body-md text-muted" style="max-width:480px;margin:1rem auto 0">
+        <span class="en">These are the actual Reels we created for our clients — see the numbers speak.</span>
+        <span class="fr">Voici les vrais Reels créés pour nos clients — les chiffres parlent d'eux-mêmes.</span>
+      </p>
+    </div>
+
+    <!-- ⬇ REAL REEL VIDEOS — Instagram Embed Style -->
+    <div class="results-grid">
+      <!-- Result 1: Paste your Instagram Reel URL below -->
+      <div class="result-card reveal reveal-delay-1">
+        <div class="result-media reel-embed-wrap" style="max-height:none;aspect-ratio:9/16;overflow:hidden;background:#000;">
+          <!--
+            HOW TO ADD YOUR REEL VIDEO — 3 OPTIONS:
+            ==========================================
+            OPTION A — Self-hosted MP4 (best performance):
+              <video src="reel1.mp4" poster="reel1-thumb.jpg"
+                     controls playsinline loop muted
+                     style="width:100%;height:100%;object-fit:cover;"></video>
+
+            OPTION B — Instagram Embed (copy "Embed" code from Instagram post):
+              Paste the full <blockquote class="instagram-media"> code here,
+              then add this script once at bottom of page:
+              <script async src="//www.instagram.com/embed.js"></script>
+
+            OPTION C — Instagram Direct iframe (replace URL):
+              <iframe src="https://www.instagram.com/p/YOUR_POST_ID/embed/"
+                      width="100%" height="100%" frameborder="0"
+                      scrolling="no" allowtransparency="true"
+                      style="border:none;overflow:hidden;height:100%;"></iframe>
+          -->
+          <!-- PLACEHOLDER — remove when you add your real video -->
+          <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;background:var(--dark-3);">
+            <div class="play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span style="font-size:.75rem;color:var(--muted);font-style:italic;">Add your Reel here (see comment above)</span>
+          </div>
+        </div>
+        <div class="result-info">
+          <div class="result-name en">Restaurant Name</div>
+          <div class="result-name fr">Nom du Restaurant</div>
+          <div class="result-city en">📍 City · 50K+ Views</div>
+          <div class="result-city fr">📍 Ville · 50K+ Vues</div>
+        </div>
+      </div>
+      <!-- Result 2 -->
+      <div class="result-card reveal reveal-delay-2">
+        <div class="result-media reel-embed-wrap" style="max-height:none;aspect-ratio:9/16;overflow:hidden;background:#000;">
+          <!-- Same options as Result 1 above — paste your video/embed here -->
+          <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;background:var(--dark-3);">
+            <div class="play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span style="font-size:.75rem;color:var(--muted);font-style:italic;">Add your Reel here (see comment above)</span>
+          </div>
+        </div>
+        <div class="result-info">
+          <div class="result-name en">Hotel Name</div>
+          <div class="result-name fr">Nom de l'Hôtel</div>
+          <div class="result-city en">📍 City · 80K+ Views</div>
+          <div class="result-city fr">📍 Ville · 80K+ Vues</div>
+        </div>
+      </div>
+      <!-- Result 3 -->
+      <div class="result-card reveal reveal-delay-3">
+        <div class="result-media reel-embed-wrap" style="max-height:none;aspect-ratio:9/16;overflow:hidden;background:#000;">
+          <!-- Same options as Result 1 above — paste your video/embed here -->
+          <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;background:var(--dark-3);">
+            <div class="play-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span style="font-size:.75rem;color:var(--muted);font-style:italic;">Add your Reel here (see comment above)</span>
+          </div>
+        </div>
+        <div class="result-info">
+          <div class="result-name en">Café Name</div>
+          <div class="result-name fr">Nom du Café</div>
+          <div class="result-city en">📍 City · 120K+ Views</div>
+          <div class="result-city fr">📍 Ville · 120K+ Vues</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6: COVERAGE MAP
+============================================================ -->
+<section id="coverage" class="section">
+  <div class="container">
+    <div class="coverage-inner">
+      <!-- Visual -->
+      <div class="coverage-visual reveal">
+        <!-- Animated favicon logo + SVG Morocco map -->
+        <div class="map-placeholder" style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+          <!-- Animated favicon logo (waves like flag) -->
+          <img src="favicon.ico" alt="AJI M3AYA Morocco" class="map-favicon-anim" style="position:absolute;top:16px;left:50%;transform:translateX(-50%);width:44px;height:44px;z-index:3;filter:drop-shadow(0 0 12px rgba(255,107,26,.6));" />
+          <!-- SVG Morocco Map -->
+          <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" style="width:90%;max-width:380px;opacity:.9;">
+            <defs>
+              <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="rgba(255,107,26,.18)"/>
+                <stop offset="100%" stop-color="rgba(255,107,26,0)"/>
+              </radialGradient>
+            </defs>
+            <!-- Glow background -->
+            <ellipse cx="210" cy="170" rx="180" ry="140" fill="url(#mapGlow)"/>
+            <!-- Morocco shape (simplified outline) -->
+            <path d="
+              M 80,30
+              L 160,20 L 200,18 L 240,22 L 280,30 L 310,28
+              L 330,40 L 340,60 L 345,90 L 340,120
+              L 350,150 L 355,180 L 350,210
+              L 340,240 L 320,265 L 300,280
+              L 270,295 L 240,305 L 200,310
+              L 160,300 L 130,280 L 100,260
+              L 75,240 L 60,210 L 55,180
+              L 50,150 L 55,120 L 60,95
+              L 65,70 L 70,50 Z
+            " fill="rgba(255,107,26,.12)" stroke="var(--orange)" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- City dots -->
+            <g fill="var(--orange)" opacity=".9">
+              <circle cx="145" cy="100" r="4"><title>Tanger</title></circle>
+              <circle cx="170" cy="120" r="3"><title>Tétouan</title></circle>
+              <circle cx="200" cy="108" r="3"><title>Rabat</title></circle>
+              <circle cx="185" cy="130" r="5"><title>Casablanca</title></circle>
+              <circle cx="240" cy="105" r="3"><title>Fès</title></circle>
+              <circle cx="215" cy="110" r="3"><title>Meknès</title></circle>
+              <circle cx="260" cy="120" r="3"><title>Oujda</title></circle>
+              <circle cx="210" cy="185" r="4"><title>Marrakech</title></circle>
+              <circle cx="155" cy="195" r="3"><title>Agadir</title></circle>
+              <circle cx="195" cy="130" r="3"><title>Kénitra</title></circle>
+            </g>
+            <!-- City labels -->
+            <g fill="rgba(245,240,235,.7)" font-size="8" font-family="DM Sans, sans-serif">
+              <text x="148" y="94">Tanger</text>
+              <text x="186" y="103">Rabat</text>
+              <text x="170" y="144">Casa</text>
+              <text x="243" y="100">Fès</text>
+              <text x="213" y="200">Marrakech</text>
+              <text x="130" y="205">Agadir</text>
+            </g>
+            <!-- Pulse animation on Tanger (our city!) -->
+            <circle cx="145" cy="100" r="10" fill="none" stroke="var(--orange)" stroke-width="1" opacity=".6">
+              <animate attributeName="r" values="6;16;6" dur="2.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".8;0;.8" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="reveal reveal-delay-1">
+        <div class="section-label en">Our Coverage</div>
+        <div class="section-label fr">Notre Couverture</div>
+        <h2 class="display-lg en">We work all across <span class="text-orange italic">Morocco</span></h2>
+        <h2 class="display-lg fr">Nous intervenons dans tout le <span class="text-orange italic">Maroc</span></h2>
+        <p class="body-md text-muted" style="margin:1rem 0 1.5rem">
+          <span class="en">Wherever you are in Morocco, we come to you. From big cities to smaller towns — your growth has no limits.</span>
+          <span class="fr">Où que vous soyez au Maroc, nous venons à vous. Des grandes villes aux petites communes — votre croissance n'a pas de limites.</span>
+        </p>
+        <div class="cities-list">
+          <span class="city-tag">Casablanca</span>
+          <span class="city-tag">Rabat</span>
+          <span class="city-tag">Marrakech</span>
+          <span class="city-tag">Fès</span>
+          <span class="city-tag">Tanger</span>
+          <span class="city-tag">Agadir</span>
+          <span class="city-tag">Meknès</span>
+          <span class="city-tag">Oujda</span>
+          <span class="city-tag">Tétouan</span>
+          <span class="city-tag">Kénitra</span>
+          <span class="city-tag">Settat</span>
+          <span class="city-tag">Berrechid</span>
+          <span class="city-tag en">+ All Morocco 🇲🇦</span>
+          <span class="city-tag fr">+ Tout le Maroc 🇲🇦</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7: CTA STRIP
+============================================================ -->
+<section id="cta-strip">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-label en" style="margin:0 auto 1.25rem">Ready to Grow?</div>
+      <div class="section-label fr" style="margin:0 auto 1.25rem">Prêt à Grandir?</div>
+      <h2 class="display-lg cta-headline en">Ready to grow your<br><span class="text-orange italic">business?</span></h2>
+      <h2 class="display-lg cta-headline fr">Prêt à développer votre<br><span class="text-orange italic">business?</span></h2>
+      <p class="cta-sub body-md en">Join 200+ businesses that are already winning on Instagram. Your first consultation is completely free.</p>
+      <p class="cta-sub body-md fr">Rejoignez les 200+ entreprises qui gagnent déjà sur Instagram. Votre première consultation est entièrement gratuite.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/212660213020" class="btn btn-primary" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span class="en">Chat on WhatsApp</span>
+          <span class="fr">WhatsApp</span>
+        </a>
+        <a href="tel:+212660213020" class="btn btn-ghost">
+          📞&nbsp;<span class="en">Call Now</span><span class="fr">Appeler</span>
+        </a>
+        <a href="https://www.instagram.com/ajii_m3aya?igsh=MXhoNXQzNzVyNmYxcg==" class="btn btn-ghost" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8: CONTACT FORM (Netlify-ready)
+============================================================ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <!-- Sidebar -->
+      <div>
+        <div class="section-label en">Book a Session</div>
+        <div class="section-label fr">Réserver une Session</div>
+        <h2 class="display-md reveal en" style="margin-bottom:1rem">Let's start<br><span class="text-orange italic">your story</span></h2>
+        <h2 class="display-md reveal fr" style="margin-bottom:1rem">Commençons<br><span class="text-orange italic">votre histoire</span></h2>
+        <p class="body-md text-muted reveal" style="margin-bottom:2rem">
+          <span class="en">Fill the form and we'll get back to you within 24 hours to confirm your shoot date.</span>
+          <span class="fr">Remplissez le formulaire et nous vous recontactons sous 24h pour confirmer la date de tournage.</span>
+        </p>
+        <div class="contact-links reveal">
+          <a href="https://wa.me/212660213020" class="contact-link" target="_blank">
+            <div class="contact-link-icon">💬</div>
+            <div>
+              <div class="contact-link-text">WhatsApp</div>
+              <div class="contact-link-val">+212 660 213 020</div>
+            </div>
+          </a>
+          <a href="tel:+212660213020" class="contact-link">
+            <div class="contact-link-icon">📞</div>
+            <div>
+              <div class="contact-link-text en">Phone / Call</div>
+              <div class="contact-link-text fr">Téléphone</div>
+              <div class="contact-link-val">+212 660 213 020</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/ajii_m3aya?igsh=MXhoNXQzNzVyNmYxcg==" class="contact-link" target="_blank">
+            <div class="contact-link-icon">📸</div>
+            <div>
+              <div class="contact-link-text">Instagram</div>
+              <div class="contact-link-val">@ajii_m3aya</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form-card reveal">
+
+        <!-- ✅ SUCCESS MESSAGE (shown after submission) -->
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">🎉</div>
+          <h3 class="en">We received your request!</h3>
+          <h3 class="fr">Votre demande a été reçue !</h3>
+          <p class="en">Thank you! We will contact you within <strong>24 hours</strong> to confirm your shoot date. See you soon! 🎬</p>
+          <p class="fr">Merci ! Nous vous contacterons sous <strong>24h</strong> pour confirmer la date de tournage. À bientôt ! 🎬</p>
+          <a href="https://wa.me/212660213020" class="btn btn-primary" style="margin-top:1.5rem" target="_blank">
+            💬 <span class="en">Chat on WhatsApp</span><span class="fr">WhatsApp</span>
+          </a>
+        </div>
+
+        <!--
+          ============================================================
+          FORMSPREE FORM — endpoint: https://formspree.io/f/xreolakg
+          Spam Protection:
+            1. Honeypot field (_gotcha) — traps bots silently
+            2. Time-based guard — blocks submissions < 3s after load
+            3. HTML5 required + email validation
+            4. Loading state + disabled button on submit
+            5. Prevents double submission via JS flag
+          ============================================================
+        -->
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/xreolakg"
+          method="POST"
+          novalidate
+        >
+          <!-- 🍯 HONEYPOT — bots fill this, humans don't. Formspree ignores submissions with it filled -->
+          <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off" />
+
+          <!-- Hidden: record submission timestamp for time-guard -->
+          <input type="hidden" name="_subject" value="New AJI M3AYA Booking Request 🎬" />
+          <input type="hidden" id="formLoadTime" name="_load_time" />
+
+          <div class="form-row">
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="fullname">
+                <span class="en">Full Name</span>
+                <span class="fr">Nom Complet</span>
+                <span class="req">*</span>
+              </label>
+              <input type="text" id="fullname" name="fullname" required
+                autocomplete="name"
+                placeholder="Mohammed Alami" />
+            </div>
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="phone">
+                <span class="en">Phone Number</span>
+                <span class="fr">Numéro de Téléphone</span>
+                <span class="req">*</span>
+              </label>
+              <input type="tel" id="phone" name="phone" required
+                autocomplete="off"
+                placeholder="+212 6XX XXX XXX" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <!-- City -->
+            <div class="form-group">
+              <label for="city">
+                <span class="en">City</span>
+                <span class="fr">Ville</span>
+                <span class="req">*</span>
+              </label>
+              <input type="text" id="city" name="city" required
+                autocomplete="off"
+                placeholder="Casablanca" />
+            </div>
+            <!-- Address -->
+            <div class="form-group">
+              <label for="address">
+                <span class="en">Address</span>
+                <span class="fr">Adresse</span>
+                <span class="req">*</span>
+              </label>
+              <input type="text" id="address" name="address" required
+                autocomplete="off"
+                placeholder="Rue Ibn Battouta, Agdal" />
+            </div>
+          </div>
+
+          <!-- Instagram (full width, standalone) -->
+          <div class="form-group">
+            <label for="instagram">
+              Instagram
+              <span class="opt">(<span class="en">optional</span><span class="fr">optionnel</span>)</span>
+            </label>
+            <input type="text" id="instagram" name="instagram"
+              autocomplete="off"
+              placeholder="@yourhandle" />
+          </div>
+
+          <div class="form-row">
+            <!-- Type of Store -->
+            <div class="form-group">
+              <label for="store-type">
+                <span class="en">Type of Store</span>
+                <span class="fr">Type d'Établissement</span>
+                <span class="req">*</span>
+              </label>
+              <select id="store-type" name="store-type" required>
+                <option value="" disabled selected>— Select —</option>
+                <option value="restaurant">Restaurant</option>
+                <option value="hotel">Hotel / Riad</option>
+                <option value="cafe">Café</option>
+                <option value="fast-food">Fast Food</option>
+                <option value="patisserie">Pâtisserie</option>
+                <option value="food-truck">Food Truck</option>
+                <option value="other">Other / Autre</option>
+              </select>
+            </div>
+            <!-- Store Name -->
+            <div class="form-group">
+              <label for="store-name">
+                <span class="en">Store Name</span>
+                <span class="fr">Nom de l'Établissement</span>
+                <span class="req">*</span>
+              </label>
+              <input type="text" id="store-name" name="store-name" required
+                autocomplete="off"
+                placeholder="Le Jardin Secret" />
+            </div>
+          </div>
+
+          <!-- Preferred Date -->
+          <div class="form-group">
+            <label for="preferred-date">
+              <span class="en">Preferred Shoot Date</span>
+              <span class="fr">Date de Tournage Souhaitée</span>
+              <span class="req">*</span>
+            </label>
+            <input type="date" id="preferred-date" name="preferred-date" required
+              style="color-scheme: dark;" />
+          </div>
+
+          <!-- Validation error message -->
+          <div id="formError" style="display:none;color:#ff6b6b;font-size:.85rem;margin-bottom:1rem;padding:.75rem 1rem;background:rgba(255,107,107,.1);border-radius:var(--radius-sm);border:1px solid rgba(255,107,107,.2);">
+            <span class="en">⚠️ Please fill in all required fields correctly.</span>
+            <span class="fr">⚠️ Veuillez remplir tous les champs obligatoires.</span>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="submit-main" id="submitMain">AJI M3AYA</span>
+            <span class="submit-sub en" id="submitSubEn">Submit Your Request</span>
+            <span class="submit-sub fr" id="submitSubFr">Envoyer ma Demande</span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 9: FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">AJI<span> M3AYA</span></div>
+      <p class="footer-copy en">© 2025 AJI M3AYA. All rights reserved.</p>
+      <p class="footer-copy fr">© 2025 AJI M3AYA. Tous droits réservés.</p>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/ajii_m3aya?igsh=MXhoNXQzNzVyNmYxcg==" target="_blank">Instagram</a>
+        <a href="https://wa.me/212660213020" target="_blank">WhatsApp</a>
+        <a href="tel:+212660213020">+212 660 213 020</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  /* ---- Language Toggle ---- */
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+    document.getElementById('btnFr').classList.toggle('active', lang === 'fr');
+    localStorage.setItem('ajilang', lang);
+  }
+  (function() {
+    const saved = localStorage.getItem('ajilang');
+    if (saved === 'fr') setLang('fr');
+  })();
+
+  /* ---- Mobile Nav ---- */
+  function openMobileNav()  { document.getElementById('mobileNav').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); document.body.style.overflow = ''; }
+
+  /* ---- Navbar scroll state ---- */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  /* ---- Scroll reveal ---- */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  /* ============================================================
+     FORMSPREE INTEGRATION
+     Endpoint: https://formspree.io/f/xreolakg
+     Spam protection: time guard + honeypot + validation
+     UX: loading state, disable on submit, success message
+  ============================================================ */
+
+  // Record page load time for time-based spam guard
+  const _pageLoadTime = Date.now();
+  const _loadInput = document.getElementById('formLoadTime');
+  if (_loadInput) _loadInput.value = _pageLoadTime;
+
+  const contactForm  = document.getElementById('contactForm');
+  const submitBtn    = document.getElementById('submitBtn');
+  const formSuccess  = document.getElementById('formSuccess');
+  const formError    = document.getElementById('formError');
+  let   _submitted   = false; // prevent double submission
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // ── Anti-double-submit guard ──
+      if (_submitted) return;
+
+      // ── Time-based spam guard: reject if < 3 seconds since page load ──
+      const elapsed = Date.now() - _pageLoadTime;
+      if (elapsed < 3000) {
+        console.warn('[AJI M3AYA] Submission too fast — likely a bot.');
+        return;
+      }
+
+      // ── Honeypot check (also handled server-side by Formspree) ──
+      const honeypot = contactForm.querySelector('input[name="_gotcha"]');
+      if (honeypot && honeypot.value !== '') return;
+
+      // ── HTML5 validation ──
+      const requiredFields = contactForm.querySelectorAll('[required]');
+      let valid = true;
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#ff6b6b';
+          valid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+
+      if (!valid) {
+        formError.style.display = 'block';
+        contactForm.querySelector('[required]').focus();
+        return;
+      }
+      formError.style.display = 'none';
+
+      // ── Loading state ──
+      _submitted = true;
+      submitBtn.disabled = true;
+      submitBtn.querySelector('.submit-main').textContent = '⏳';
+      submitBtn.querySelector('#submitSubEn').textContent = 'Sending…';
+      submitBtn.querySelector('#submitSubFr').textContent = 'Envoi en cours…';
+
+      // ── Submit to Formspree via fetch (no page reload) ──
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          // ✅ SUCCESS — hide form, show thank-you message
+          contactForm.style.display = 'none';
+          formSuccess.classList.add('show');
+          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          // ❌ Server error — re-enable and alert
+          throw new Error('Formspree returned ' + response.status);
+        }
+      } catch (err) {
+        console.error('[AJI M3AYA] Form error:', err);
+        _submitted = false;
+        submitBtn.disabled = false;
+        submitBtn.querySelector('.submit-main').textContent = 'AJI M3AYA';
+        submitBtn.querySelector('#submitSubEn').textContent = 'Submit Your Request';
+        submitBtn.querySelector('#submitSubFr').textContent = 'Envoyer ma Demande';
+        formError.style.display = 'block';
+        formError.querySelector('.en').textContent = '⚠️ Something went wrong. Please try WhatsApp instead.';
+        formError.querySelector('.fr').textContent = '⚠️ Une erreur est survenue. Essayez WhatsApp à la place.';
+      }
+    });
+
+    // Clear red border on input
+    contactForm.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('input', () => { el.style.borderColor = ''; });
+    });
+  }
+</script>
+
+</body>
+</html>
